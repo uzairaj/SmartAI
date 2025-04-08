@@ -57,11 +57,15 @@ def process_pdf_to_vectorstore(file_path):
         filename=file_path,
         strategy="hi_res",
         extract_images_in_pdf=True,
-        extract_image_block_types=["Image", "Table"],
-        extract_image_block_to_payload=False,
+        extract_image_block_types=["Table", "Image"],  # ✅ Extract only structured blocks
+        extract_image_block_to_payload=False,          # ✅ Do not embed base64 into chunks
+        infer_table_structure=False,                   # ✅ Avoid layout model for tables
+        ocr_languages=None,                            # ✅ Skip OCR
+        extract_from_layout=False,                     # ✅ <- this disables layout OCR agent
         split_pdf_page=True,
-        max_characters=10000,
+        max_characters=10000
     )
+
 
     texts = []
     tables = []
