@@ -17,8 +17,8 @@ from langchain_community.vectorstores import FAISS
 
 from dotenv import load_dotenv
 
-import torch
-torch.classes.__path__ = [] # add this line to manually set it to empty. 
+os.environ[
+    "OCR_AGENT"] = "unstructured.partition.utils.ocr_models.google_vision_ocr.OCRAgentGoogleVision"
 
 
 load_dotenv()
