@@ -13,3 +13,4 @@ opencv-python-headless
 scikit-learn
 openai
 pdf2image
+pysqlite3-binary
