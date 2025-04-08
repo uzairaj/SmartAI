@@ -6,11 +6,11 @@ pi-heif
 unstructured
 unstructured_inference
 pdfplumber
-chromadb
+pdf2image
+pysqlite3-binary
 sentence-transformers
 huggingface-hub
 opencv-python-headless
 scikit-learn
 openai
-pdf2image
-pysqlite3-binary
+chromadb
