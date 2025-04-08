@@ -1,0 +1,10 @@
+streamlit
+langchain
+langchain-openai
+langchain-community
+unstructured
+pdfplumber
+chromadb
+sentence-transformers
+huggingface-hub
+openai
