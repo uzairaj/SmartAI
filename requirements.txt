@@ -9,5 +9,7 @@ pdfplumber
 chromadb
 sentence-transformers
 huggingface-hub
+opencv-python-headless
+scikit-learn
 openai
 pdf2image
