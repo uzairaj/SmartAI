@@ -13,6 +13,8 @@ from langchain_core.runnables import RunnableLambda
 import pdfplumber
 import base64
 import os
+from langchain_community.vectorstores import FAISS
+
 from dotenv import load_dotenv
 
 import torch
@@ -34,11 +36,14 @@ embeddings = OpenAIEmbeddings()
 #     encode_kwargs={"normalize_embeddings": False}
 # )
 
-vectorstore = Chroma(
-    collection_name="financial_analysis",
+# vectorstore = Chroma(
+#     collection_name="financial_analysis",
+#     embedding_function=embeddings,
+#     persist_directory="./openai_vector_db"
+# )
+vectorstore = FAISS(collection_name="financial_analysis",
     embedding_function=embeddings,
-    persist_directory="./openai_vector_db"
-)
+    persist_directory="./openai_vector_db")
 
 financial_prompt = """
 You are a financial analyst providing detailed insights based on the provided data.
