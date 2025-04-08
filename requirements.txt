@@ -4,6 +4,7 @@ langchain-openai
 langchain-community
 pi-heif
 unstructured
+unstructured_inference
 pdfplumber
 chromadb
 sentence-transformers
