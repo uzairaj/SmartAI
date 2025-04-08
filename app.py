@@ -15,9 +15,14 @@ import base64
 import os
 from dotenv import load_dotenv
 
-load_dotenv()
-os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
+import torch
+torch.classes.__path__ = [] # add this line to manually set it to empty. 
 
+
+load_dotenv()
+openai_api_key = os.getenv("OPENAI_API_KEY")
+os.environ["OPENAI_API_KEY"] = openai_api_key
+           
 st.set_page_config(page_title="Smart Data Insight", layout="wide")
 st.title("Smart Data Insights: AI-Powered, Time-Saving, Productivity-Boosting - Demo Version")
 model = ChatOpenAI(model="gpt-4o-mini", temperature=0.1)
