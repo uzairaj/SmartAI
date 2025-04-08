@@ -2,6 +2,7 @@ streamlit
 langchain
 langchain-openai
 langchain-community
+pi-heif
 unstructured
 pdfplumber
 chromadb
