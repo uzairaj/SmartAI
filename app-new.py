@@ -18,7 +18,7 @@ from langchain_community.vectorstores import FAISS
 from dotenv import load_dotenv
 
 os.environ[
-    "OCR_AGENT"] = "unstructured.partition.utils.ocr_models.google_vision_ocr.OCRAgentGoogleVision"
+    "OCR_AGENT"] = "unstructured.partition.utils.ocr_models.tesseract_ocr.OCRAgentTesseract"
 
 
 load_dotenv()
