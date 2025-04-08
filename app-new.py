@@ -17,7 +17,6 @@ from langchain_community.vectorstores import FAISS
 
 from dotenv import load_dotenv
 
-os.environ["OCR_AGENT"] = "unstructured.partition.utils.ocr_models.tesseract_ocr.OCRAgentTesseract"
 
 load_dotenv()
 openai_api_key = os.getenv("OPENAI_API_KEY")
