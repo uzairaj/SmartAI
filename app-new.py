@@ -17,9 +17,7 @@ from langchain_community.vectorstores import FAISS
 
 from dotenv import load_dotenv
 
-os.environ[
-    "OCR_AGENT"] = "unstructured.partition.utils.ocr_models.tesseract_ocr.OCRAgentTesseract"
-
+os.environ["OCR_AGENT"] = "unstructured.partition.utils.ocr_models.tesseract_ocr.OCRAgentTesseract"
 
 load_dotenv()
 openai_api_key = os.getenv("OPENAI_API_KEY")
@@ -45,13 +43,13 @@ if os.path.exists(faiss_index_path):
 def process_pdf_to_vectorstore(file_path):
     global vectorstore
     chunks = partition_pdf(
-    filename=file_path,
-    strategy="hi_res",
-    extract_images_in_pdf=False,                    # ✅ extract table/image blocks
-    extract_image_block_types=["Table"],  # ✅ only extract relevant types
-    extract_image_block_to_payload=False,          # don’t include actual base64 here
-    split_pdf_page=True,
-    max_characters=10000
+        filename=file_path,
+        strategy="hi_res",
+        extract_images_in_pdf=True,
+        extract_image_block_types=["Table", "Image"],  # ✅ Still get tables/images
+        extract_image_block_to_payload=False,
+        split_pdf_page=True,
+        max_characters=10000
     )
 
     texts = []
