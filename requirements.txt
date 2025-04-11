@@ -2,7 +2,6 @@ streamlit
 langchain
 langchain-openai
 langchain-community
-pi-heif
 unstructured
 unstructured_inference
 pdfplumber
@@ -16,3 +15,14 @@ openai
 chromadb
 paddlepaddle>=3.0.0b1
 unstructured.paddleocr==2.10.0
+onnx>=1.17.0
+onnxruntime>=1.19.0
+pdf2image
+pdfminer.six
+pikepdf
+pi_heif
+pypdf
+google-cloud-vision
+effdet
+unstructured-inference>=0.8.10
+unstructured.pytesseract>=0.3.12
