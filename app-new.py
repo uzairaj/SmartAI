@@ -116,7 +116,7 @@ def build_prompt(kwargs):
     prompt_template = f"""
     You are a financial analyst providing detailed insights based on the provided data.
     - Answer the user's question based on the text, tables, and images extracted from the document.
-    - Response should be structured, concise, and in json format
+    - Response should be structured, concise, and in markdown format
     - If the user asks for data in images, describe the image content based on the extracted context.
     Always include the reasoning behind your answers.
 
