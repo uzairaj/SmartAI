@@ -14,5 +14,5 @@ opencv-python-headless
 scikit-learn
 openai
 chromadb
-paddleocr 
-paddlepaddle
+paddlepaddle>=3.0.0b1
+unstructured.paddleocr==2.10.0
