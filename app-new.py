@@ -17,6 +17,9 @@ from langchain_community.vectorstores import FAISS
 
 from dotenv import load_dotenv
 
+import torch
+torch.classes.__path__ = [] # add this line to manually set it to empty. 
+
 
 load_dotenv()
 openai_api_key = os.getenv("OPENAI_API_KEY")
@@ -41,15 +44,30 @@ if os.path.exists(faiss_index_path):
 
 def process_pdf_to_vectorstore(file_path):
     global vectorstore
+    # chunks = partition_pdf(
+    #     filename=file_path,
+    #     strategy="hi_res",
+    #     extract_images_in_pdf=True,
+    #     extract_image_block_types=["Table", "Image"],  # ✅ Still get tables/images
+    #     extract_image_block_to_payload=False,
+    #     split_pdf_page=True,
+    #     max_characters=10000
+    # )
+
     chunks = partition_pdf(
         filename=file_path,
         strategy="hi_res",
         extract_images_in_pdf=True,
-        extract_image_block_types=["Table", "Image"],  # ✅ Still get tables/images
+        extract_image_block_types=["Table", "Image"],
         extract_image_block_to_payload=False,
+        infer_table_structure=False,
+        ocr_languages=None,
+        extract_from_layout=False,
+        hi_res_model_name=None,                       # ✅ prevents detectron2 layout model load
+        pdf_infer_table_structure=False,              # ✅ double-disable internal fallback
         split_pdf_page=True,
-        max_characters=10000
-    )
+        max_characters=10000,
+        )
 
     texts = []
     tables = []

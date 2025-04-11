@@ -36,14 +36,11 @@ embeddings = OpenAIEmbeddings()
 #     encode_kwargs={"normalize_embeddings": False}
 # )
 
-# vectorstore = Chroma(
-#     collection_name="financial_analysis",
-#     embedding_function=embeddings,
-#     persist_directory="./openai_vector_db"
-# )
-vectorstore = FAISS(collection_name="financial_analysis",
+vectorstore = Chroma(
+    collection_name="financial_analysis",
     embedding_function=embeddings,
-    persist_directory="./openai_vector_db")
+    persist_directory="./openai_vector_db"
+)
 
 financial_prompt = """
 You are a financial analyst providing detailed insights based on the provided data.
@@ -57,17 +54,11 @@ def process_pdf_to_vectorstore(file_path):
         filename=file_path,
         strategy="hi_res",
         extract_images_in_pdf=True,
-        extract_image_block_types=["Table", "Image"],  # ✅ Extract only structured blocks
-        extract_image_block_to_payload=False,          # ✅ Do not embed base64 into chunks
-        infer_table_structure=False,                   # ✅ Avoid layout model for tables
-        ocr_languages=None,                            # ✅ Skip OCR
-        extract_from_layout=False,                     # ✅ <- this disables layout OCR agent
-        hi_res_model_name=None,                       # ✅ prevents detectron2 layout model load
-        pdf_infer_table_structure=False,              # ✅ double-disable internal fallback
+        extract_image_block_types=["Image", "Table"],
+        extract_image_block_to_payload=False,
         split_pdf_page=True,
-        max_characters=10000
+        max_characters=10000,
     )
-
 
     texts = []
     tables = []
