@@ -62,6 +62,8 @@ def process_pdf_to_vectorstore(file_path):
         infer_table_structure=False,                   # ✅ Avoid layout model for tables
         ocr_languages=None,                            # ✅ Skip OCR
         extract_from_layout=False,                     # ✅ <- this disables layout OCR agent
+        hi_res_model_name=None,                       # ✅ prevents detectron2 layout model load
+        pdf_infer_table_structure=False,              # ✅ double-disable internal fallback
         split_pdf_page=True,
         max_characters=10000
     )
